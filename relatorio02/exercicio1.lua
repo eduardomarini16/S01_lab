@@ -14,7 +14,7 @@ local N = tonumber(io.read())
 print("Digite a base: ")
 local B = tonumber(io.read())
 
-if m <= n then
+if M <= N then
     gerarTabelasPotenciais(M,N,B)
 else 
     print("Erro, expoente inicial deve ser menor ou igual a expoente final.")
