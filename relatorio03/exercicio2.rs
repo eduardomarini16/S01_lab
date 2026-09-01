@@ -1,0 +1,32 @@
+use std::io;
+
+fn acertou_o_alvo(palpite: i32, numero_secreto: i32) -> bool {
+    (palpite - numero_secreto).abs() <= 5
+}
+
+fn main() {
+    let numero_secreto: i32 = 42;
+
+    loop {
+        let mut entrada = String::new();
+        println!("Digite seu palpite: ");
+
+        io::stdin()
+            .read_line(&mut entrada)
+            .expect("Erro ao ler o palpite");
+        
+        let palpite: i32 = entrada
+            .trim()
+            .parse()
+            .expect("Digite apenas um numero inteiro");
+        
+        if acertou_o_alvo(palpite, numero_secreto) {
+            let distancia = (palpite - numero_secreto).abs();
+
+            println!("Parabens, voce acertou o alvo! Voce ficou apenas {} inidade(s) do numero secreto", distancia);
+            break;
+        } else {
+            println!("Voce passou longe! Tente novamente");
+        }
+    }
+}
