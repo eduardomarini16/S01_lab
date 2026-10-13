@@ -4,7 +4,7 @@ class MortoVivo:
         self._almas = almas
         self.__estus = estus
 
-    def get_esstus(self):
+    def get_estus(self):
         return self.__estus
 
     def set_estus(self, quantidade):
@@ -16,6 +16,24 @@ class MortoVivo:
     def mostrar_status(self):
         return f"Morto vivo {self.nome} | Almas: {self._almas} | Estus: {self.__estus}"
 
-petrus = MortoVivo("Petrus", 2000, 5)
-print(petrus.mostrar_status())
-petrus.set_estus(11)
+class Clerigo(MortoVivo):
+    def __init__(self, nome, almas, estus, milagre):
+        super().__init__(nome, almas, estus)
+        self.milagre = milagre
+
+    def mostrar_status(self):
+        status_pai = super().mostrar_status()
+        return f"{status_pai} | Milagre: {self.milagre}"
+
+clerigo = Clerigo("Petrus", 2000, 5, "Lança de Luz")
+print(clerigo.mostrar_status())
+
+clerigo.set_estus(15)
+clerigo.set_estus(10)
+print(clerigo.mostrar_status())
+
+# print(clérigo.__estus)  # Erro: __estus é privado
+
+
+
+
