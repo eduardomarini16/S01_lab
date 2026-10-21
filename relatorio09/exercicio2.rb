@@ -39,7 +39,7 @@ class Regente
     @orquestra.each do |instrumentista|
       instrumentista.interpretar(peca)
     end
-  end
+  endm 
 
   def escalacao
     @orquestra.map do |instrumentista|
